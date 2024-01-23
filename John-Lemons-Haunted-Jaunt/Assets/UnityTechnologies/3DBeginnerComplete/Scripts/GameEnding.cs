@@ -14,7 +14,7 @@ public class GameEnding : MonoBehaviour
     bool m_IsPlayerAtExit;
     bool m_IsPlayerCaught;
     float m_Timer;
-   // bool m_HasAudioPlayed;
+    bool m_HasAudioPlayed;
     
     void OnTriggerEnter (Collider other)
     {
@@ -43,11 +43,11 @@ public class GameEnding : MonoBehaviour
 
     void EndLevel (CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
     {
-      //  if (!m_HasAudioPlayed)
-       // {
-         //   audioSource.Play();
-           // m_HasAudioPlayed = true;
-       // }
+        if (!m_HasAudioPlayed)
+        {
+            audioSource.Play();
+            m_HasAudioPlayed = true;
+        }
             
         m_Timer += Time.deltaTime;
         imageCanvasGroup.alpha = m_Timer / fadeDuration;
